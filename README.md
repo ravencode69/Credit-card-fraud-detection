@@ -2,38 +2,58 @@
 This is a data science project with machine learning in R.
 
 ## Aim of Project
-The aim of this project is to build a classifier that can detect credit card fraudulent transactions. I used a variety of machine learning algorithms like Decision Trees, Logistic Regression, Artificial Neural Networks and finally, Gradient Boosting Classifier that will be able to discern fraudulent from non-fraudulent ones.
-
+The aim of this project is to build a classifier that can detect credit card fraudulent transactions. 
 ### Dataset used 
 For carrying out the credit card fraud detection, I used the [Card Transactions dataset](https://drive.google.com/file/d/1CTAlmlREFRaEN3NoHHitewpqAtWS5cVQ/view) that contains a mix of fraud as well as non-fraudulent transactions.
 
-### Data Exploration
-First I imported the datasets that contain transactions made by credit cards. I then explored the data that is contained in the ```creditcard_data``` dataframe. After displaying the ```creditcard_data``` using the ```head()``` function as well as the ```tail()``` function, I proceeded to explore the other components of this dataframe. 
+What is Fraud?
+Fraud is an act of deception used to illegaly deprive another person or entity of money, property or legal rights.
 
-### Data Manipulation
-In this section of the project, I scaled the data using the ```scale()``` function. I applied this to the amount component of our ```creditcard_data``` amount. With the help of scaling, the data is structured according to a specified range. Therefore, there are no extreme values in the dataset that might interfere with the functioning of the model. 
+Rule-based approach for fraud detection
+In Rule-based approach,
 
-### Data Modelling
-After standardizing the entire dataset, I split the dataset into training set as well as test set with a split ratio of ```0.80```. This means that 80% of the data will be attributed to the ```train_data``` whereas 20% will be attributed to the ```test_data```. I then found the dimensions using the ```dim()``` function.
+Algorithms are written by fraud analyst.
+Based on strict rules.
+Changes for detecting a new fraud are done manually.
+Increase in customers and data, increases human efforts.
+Time Consuming and costly.
+Cannot recognize the hidden patterns.
+Cannot predict the fraud by going beyond the rules.
+Connot responds to new situations, not trained on or explicitly programmed.
+Data Science approach for fraud detection
+To leverage the vast amounts of data collected from online transactions and model it in a way that allows us to flag or predict fraud in future transactions.
+So we use different Machine Learning and Deep Learning techniques to detect fraud.
 
-### Fitting Logistic Regression Model
-In this section of the project, I fit the first model. I began with logistic regression. I used it for modeling the outcome probability of fraud/not fraud. I proceeded to implement this model on the test data. Once I summarised the model, I visualized it through plots. 
-In order to assess the performance of the model, I portrayed the Receiver Optimistic Characteristics or ```ROC curve```. For this, I first imported the ROC package and then plotted the ROC curve to analyze its performance.
+Here we have used Machine Learning Techniques.
+Machine Learning (ML) - ML encompasses a large collection of algorithms and techniques used in classifications, regression, clustering and anomaly detection.
 
-### Fitting a Decision Tree Model
-Next, I implemented a decision tree algorithm to plot the outcomes of a decision through which I could conclude as to what class the object belongs to. I then implemented the decision tree model and plotted it using the ```rpart.plot()``` function. I specifically used the recursive parting to plot the decision tree.
+Some of the Challenges of fraud detection model
+Unbalanced Data
+Operational Efficiency
+Incorrect flagging
+Dealing with Unbalanced Data
+Classifier tends to favour majority class (=Legitimate)
+Large classification error over the fraud cases
+Classifiers learn better from a balanced distribution
+Sampling Methods to solve this Unbalanced Data problem
 
-### Artificial Neural Network
-Artificial Neural Networks are a type of machine learning algorithm that are modeled after the human nervous system. The ANN models are able to learn the patterns using the historical data and are able to perform classification on the input data. I imported the ```neuralnet``` package that allowed me to implement the ANNs. Then I proceeded to plot it using the ```plot()``` function. Now, in the case of Artificial Neural Networks, there is a range of values that is between 1 and 0. I set a threshold of 0.5, that is, values above 0.5 will correspond to 1 and the rest will be 0. 
+Random Over-Sampling (ROS) -
 
-### Gradient Boosting (GBM)
-Gradient Boosting is a popular machine learning algorithm that is used to perform classification and regression tasks. This model comprises of several underlying ensemble models like weak decision trees. These decision trees combine together to form a strong model of gradient boosting. I implemented gradient descent algorithm in the model.
+In this technique we over sample the minority class which is our fraud cases, so we copy the cases that are already present in are fradulent cases, so me copy the same cases multiple times till we reach the threshold value that we want in our dataset. The problem with this technique is that it is done by creating the duplicating lots fraud cases that are already present in our dataset that means we will be training our model with lots of duplicate values which won't explain the varriance in the dataset.
 
-### AUC-ROC Curve
-In the last section of the project, I calculated and plotted an ROC curve measuring the sensitivity and specificity of the model. The ```print``` command plots the curve and calculates the area under the curve. The area of a ROC curve can be a test of the sensivity and accuracy of a model.
+Random Under-Sampling (RUS) -
 
-## Conclusion
-Concluding our R Data Science project, I learnt how to develop a credit card fraud detection model using machine learning. I used a variety of ML algorithms to implement this model and also plotted the respective performance curves for the models. I also learnt how data can be analyzed and visualized to discern fraudulent transactions from other types of data.
+In this technique we under sample the majority class which is our legitimate cases, so we remove some of the cases from our dataset which are from legitimate transactions so we remove some of the cases till we have almost the same distribution as of fraud cases. The problem with this technique is that we will endup with throwing lot of useful data and informations which is not prefered in general.
+
+Both -
+
+You can perform both ROS and RUS by increasing the fraud cases and decreasing the legitimate cases.
+
+Synthetic Minority Over-Sampling (SMOTE) -
+
+In this technique we over-sample the minority class (i.e fraud) by creating synthetic fraud cases.
+
+Read more about SMOTE link-1, link-2
 
 
 
